@@ -5,19 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/06 17:12:31 by tom              ###   ########.fr       */
+/*   Created: 2023/11/02 01:24:24 by tom               #+#    #+#             */
+/*   Updated: 2023/11/02 01:24:26 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include <stdio.h>
+#include <stdarg.h>
 
-int	ft_strlen(char *s)
-{
-	 int	i;
+void printNumbers(int num, ...) {
+    va_list args;
+    va_start(args, num);
 
-	 i = 0;
-	 while (s[i])
-		i++;
-	return (i);
+    for (int i = 0; i < num; i++) {
+        int value = va_arg(args, int);
+        printf("%d ", value);
+    }
+
+    va_end(args);
+}
+
+int main() {
+    printNumbers(4, 5, 10, 15, 20);
+    return 0;
 }
