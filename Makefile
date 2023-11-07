@@ -1,14 +1,13 @@
-NAME = ft_printf.a
+NAME = libftprintf.a
 
-SRCS = ft_printf.c
+SRCS =	ft_printf.c \
+		ft_printf_function.c
 
 AR = ar rcs
 
 OBJS =	${SRCS:.c=.o}
 
-BONUSOBJS	= ${BONUS:.c=.o}
-
-CC =	cc
+CC =	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror 
 
