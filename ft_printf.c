@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/07 22:16:52 by tom              ###   ########.fr       */
+/*   Updated: 2023/11/08 16:45:34 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	ft_strlen(char *s)
 {
-	 int	i;
+	int		i;
 
-	 i = 0;
-	 while (s[i])
+	i = 0;
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -33,7 +33,7 @@ int	ft_putstr(char *str)
 	while (str[i] != '\0')
 	{
 		write (1, &str[i], 1);
-			i++;
+		i++;
 	}
 	return (i);
 }
