@@ -6,12 +6,11 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/13 19:30:26 by tom              ###   ########.fr       */
+/*   Updated: 2023/11/15 00:52:39 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//#include "libft.h"
 
 int	ft_strlen(char *s)
 {
@@ -64,3 +63,27 @@ int	ft_format(va_list args, const char format)
 		len += ft_putchar('%');
 	return (len);
 }
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	arguments;
+	int		i;
+	int		len;
+
+	i = -1;
+	len = 0;
+	va_start(arguments, format);
+	while (format[++i])
+	{
+		if (format[i] == '%')
+		{
+			len += ft_format(arguments, format[i + 1]);
+			i++;
+		}
+		else
+			len += ft_putchar(format[i]);
+	}
+	va_end(arguments);
+	return (len);
+}
+
