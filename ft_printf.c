@@ -6,7 +6,7 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/17 19:15:25 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/17 23:35:29 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_format(va_list args, const char format)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list arguments;
+	va_list	arguments;
 	int		i;
 	int		len;
 

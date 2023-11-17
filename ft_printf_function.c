@@ -6,11 +6,13 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:00:34 by tom               #+#    #+#             */
-/*   Updated: 2023/11/17 19:27:44 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/17 23:41:17 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_putstr(char *str)
+#include <unistd.h>
+
+int	ft_putstr(char *str)
 {
 	int	i;
 
@@ -28,23 +30,29 @@ int ft_putstr(char *str)
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return ;
 }
 
-int    ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
 	unsigned int	n;
+	int				count;
 
+	count = 0;
 	if (nb < 0)
 	{
 		ft_putchar('-');
 		n = -nb;
+		count++;
 	}
 	else
+	{
 		n = nb;
+	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10);
-		n %= 10;
+		count += ft_putnbr(n / 10);
 	}
+	ft_putchar(n % 10 + '0');
+	return (count + 1);
 }
-	

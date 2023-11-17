@@ -6,7 +6,7 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 01:24:30 by tom               #+#    #+#             */
-/*   Updated: 2023/11/17 19:19:29 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/17 23:45:13 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int 	ft_putchar(int c);
-int 	ft_putstr(char *str);
-int 	ft_format(va_list args, const char format);
+int		ft_putchar(int c);
+int		ft_putstr(char *str);
+int		ft_format(va_list args, const char format);
 int		ft_putnbr(int nb);
+int		ft_printf(const char *format, ...);
 
 #endif
