@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/15 00:52:39 by tom              ###   ########.fr       */
+/*   Updated: 2023/11/17 19:15:25 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,28 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-int	ft_putstr(char *str)
+int	ft_nbrbase(unsigned long nbr, char *base, bool ptr)
 {
-	int	i;
+	unsigned long	size;
+	unsigned long	nb;
+	int				len;
 
-	i = 0;
-	if (str == NULL)
-		return (NULL);
-	while (str[i] != '\0')
+	len = 0;
+	nb = nbr;
+	if (ptr)
 	{
-		write (1, &str[i], 1);
-		i++;
+		if (nbr == 0)
+			return (len += ft_putstr("(nil)"));
+		len += ft_putstr("0x");
+		ptr = 0;
 	}
-	return (i);
+	size = ft_strlen(base);
+	if (nb > size -1)
+	{
+		len += ft_nbrbase(nb / size, base, ptr);
+	}
+	len += ft_putchar(base[nb % size]);
+	return (len);
 }
 
 int	ft_format(va_list args, const char format)
@@ -52,7 +61,7 @@ int	ft_format(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 		len += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
-		len += ft_putnbr_un(va_arg(args, unsigned int));
+		len += ft_putnbr(va_arg(args, unsigned int));
 	else if (format == 'x')
 		len += ft_nbrbase(va_arg(args, unsigned int), "0123456789abcdef",
 				false);
@@ -66,7 +75,7 @@ int	ft_format(va_list args, const char format)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	arguments;
+	va_list arguments;
 	int		i;
 	int		len;
 
@@ -77,7 +86,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			len += ft_format(arguments, format[i + 1]);
+			len += ft_format(arguments, format[i +1]);
 			i++;
 		}
 		else
@@ -86,4 +95,3 @@ int	ft_printf(const char *format, ...)
 	va_end(arguments);
 	return (len);
 }
-
