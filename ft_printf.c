@@ -6,7 +6,7 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/21 19:34:21 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:12:45 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_format(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 		len += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
-		len += ft_putnbr(va_arg(args, unsigned int));
+		len += ft_putnbr_un(va_arg(args, unsigned int));
 	else if (format == 'x')
 		len += ft_nbrbase(va_arg(args, unsigned int), "0123456789abcdef",
 				false);

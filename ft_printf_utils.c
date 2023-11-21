@@ -6,7 +6,7 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:41:17 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/11/21 19:41:30 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:16:02 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_putstr(char *str)
 
 int	ft_putchar(int c)
 {
-	return	(write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 int	ft_putnbr(int n)
