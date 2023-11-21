@@ -1,31 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/21 19:28:06 by tbihoues          #+#    #+#              #
+#    Updated: 2023/11/21 19:42:00 by tbihoues         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 
-SRCS =	ft_printf.c \
-		ft_printf_function.c
+SRC =	ft_printf.c \
+			ft_printf_utils.c
 
-AR = ar rcs
+CC = gcc
 
-OBJS =	${SRCS:.c=.o}
+CFLAGS = -Wall -Wextra -Werror
 
-CC =	gcc
+AR = ar rc
 
-CFLAGS	=	-Wall -Wextra -Werror 
+OBJS = $(SRC:.c=.o)
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-$(NAME): ${OBJS}
-		$(AR) $(NAME) ${OBJS}
-
-all:	${NAME}
-
+all: $(NAME)
 clean:
-		rm -f ${OBJS} ${BONUSOBJS}
-
-fclean:	clean
-		rm -f ${NAME}
-
-re:	fclean all
-
-
-.PHONY: all clean fclean re
+	$(RM) $(OBJS) $(BONUS_OBJS)
+fclean: clean
+	$(RM) $(NAME)
+re: fclean $(NAME)
