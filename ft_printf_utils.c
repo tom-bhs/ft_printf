@@ -6,12 +6,13 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:41:17 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/11/21 22:16:02 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:58:26 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//affiche une chaine de caracteres et retourne sa longueur
 int	ft_putstr(char *str)
 {
 	int	i;
@@ -27,11 +28,13 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
+//affiche un caractere en retounre 1
 int	ft_putchar(int c)
 {
 	return (write(1, &c, 1));
 }
 
+//affiche un nombre entier et retourne sa longeur
 int	ft_putnbr(int n)
 {
 	int	len;
@@ -55,6 +58,7 @@ int	ft_putnbr(int n)
 	return (len);
 }
 
+//affiche un nombre entier non signe et retourne sa longeur 
 int	ft_putnbr_un(unsigned int n)
 {
 	unsigned int	len;

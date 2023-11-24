@@ -6,12 +6,13 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:00 by tom               #+#    #+#             */
-/*   Updated: 2023/11/21 22:12:45 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:55:09 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//sert a calculer la longueur dune chaine de caractere
 int	ft_strlen(char *s)
 {
 	int		i;
@@ -22,6 +23,8 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
+//sert a convertir un nombre en base de donee et renvoie
+//la longeur de la chaine convertie 
 int	ft_nbrbase(unsigned long nbr, char *base, bool ptr)
 {
 	unsigned long	size;
@@ -46,6 +49,7 @@ int	ft_nbrbase(unsigned long nbr, char *base, bool ptr)
 	return (len);
 }
 
+//sert a affiche les donnee en fonction du format specifie 
 int	ft_format(va_list args, const char format)
 {
 	int	len;
@@ -73,6 +77,8 @@ int	ft_format(va_list args, const char format)
 	return (len);
 }
 
+//parcourt la chaine de "format" et appelle ft_format pour chaque specificaion
+//de format rencontree
 int	ft_printf(const char *format, ...)
 {
 	va_list	arguments;
